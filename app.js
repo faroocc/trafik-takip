@@ -147,6 +147,39 @@ function refreshTeams(){
   }).join("") || `<p class="muted">Henüz ekip eklenmedi.</p>`;
 }
 
+
+function renderRecentIncidents(){
+  const teams=store.teams.map(normalizeTeam);
+  const rows=[...store.records]
+    .sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time))
+    .slice(0,5);
+
+  $("#recentIncidentList").innerHTML=rows.map(r=>{
+    const team=teams.find(t=>t.id===r.teamId);
+    const sameDay=store.records.filter(x=>x.teamId===r.teamId && x.date===r.date);
+    const total=sameDay.length;
+    const material=typeCount(sameDay,"Maddi Hasarlı Kaza");
+    const injury=typeCount(sameDay,"Yaralamalı Kaza");
+    const accidentTotal=material+injury;
+    const isAccident=r.type==="Maddi Hasarlı Kaza" || r.type==="Yaralamalı Kaza";
+    const fullLocation=[r.district,r.neighborhood,r.note].filter(Boolean).join(" / ");
+
+    return `<article class="recent-card">
+      <div class="row">
+        <strong class="${isAccident?"incident-type-strong":""}">${esc(r.type)}</strong>
+        <span class="badge">${r.date} • ${r.time}</span>
+      </div>
+      <div class="recent-location">${esc(fullLocation||"Konum bilgisi yok")}</div>
+      <div class="recent-assignment">Verilen ekip: <strong>${esc(team?.code||"Silinmiş ekip")}</strong></div>
+      <div class="recent-workload">
+        <span><strong>${total}</strong>O gün toplam konu</span>
+        <span><strong>${accidentTotal}</strong>O gün toplam kaza</span>
+        <span><strong>${injury}</strong>Yaralamalı</span>
+      </div>
+    </article>`;
+  }).join("") || `<p class="muted">Henüz ihbar kaydı bulunmuyor.</p>`;
+}
+
 function renderReports(){
   const date=$("#filterDate").value, team=$("#filterTeam").value;
   let rows=store.records.filter(r=>(!date||r.date===date)&&(!team||r.teamId===team));
@@ -172,6 +205,7 @@ function refresh(){
   $("#statInjury").textContent=typeCount(todays,"Yaralamalı Kaza");
   $("#statWanted").textContent=typeCount(todays,"Yakalamalı Araç");
   renderMatchingTeams();
+  renderRecentIncidents();
   renderReports();
 }
 

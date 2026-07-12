@@ -1,11 +1,10 @@
-# Trafik Takip Sistemi V4
+# Trafik Takip Sistemi V5
 
-## Yeni ihbar akışı
-1. İlçe seçilir.
-2. Mahalle seçilir.
-3. Yalnızca o mahalleye atanmış ekipler gösterilir.
-4. Her ekibin seçilen gündeki toplam, maddi, yaralamalı ve yakalama sayıları görünür.
-5. Ekip seçilip ihbar kaydedilir.
-6. Kayıt raporlara otomatik yansır.
-
-GitHub repository içindeki dosyaları bu sürümle değiştirin.
+## Yenilikler
+- İhbar ekranı uygulamanın en üstünde
+- Son 5 ihbar aynı ekranda
+- Tam konum: ilçe / mahalle / açıklama
+- Verilen ekip bilgisi
+- Verilen ekibin o günkü toplam konusu
+- Verilen ekibin o günkü toplam kaza ve yaralamalı sayısı
+- Kaza kayıtları görsel olarak öne çıkarılır

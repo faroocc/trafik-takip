@@ -69,3 +69,13 @@ dialog::backdrop{background:rgba(0,0,0,.65)}.dialog-actions{display:grid;grid-te
 .workload strong{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
 .empty-match{color:var(--muted);font-size:13px;line-height:1.5;padding:8px 2px}
 @media(max-width:430px){.workload{grid-template-columns:repeat(2,1fr)}}
+
+.recent-incidents{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.recent-card{background:var(--card2);border:1px solid var(--line);border-radius:15px;padding:13px}
+.recent-location{font-size:15px;font-weight:700;margin-top:6px}
+.recent-assignment{margin-top:7px;color:#dbeafe;font-size:13px}
+.recent-workload{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.recent-workload span{background:#0f1a2c;border-radius:9px;padding:8px;text-align:center;font-size:11px;color:var(--muted)}
+.recent-workload strong{display:block;color:var(--text);font-size:17px;margin-bottom:2px}
+.incident-type-strong{color:#fca5a5}
+.stats-grid{margin-top:16px}
