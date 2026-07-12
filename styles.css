@@ -54,3 +54,18 @@ dialog::backdrop{background:rgba(0,0,0,.65)}.dialog-actions{display:grid;grid-te
 .mini-chip{font-size:11px;background:#20334f;color:#dbeafe;padding:4px 7px;border-radius:999px}
 .more-chip{background:#334155}
 @media(max-width:430px){.neighborhood-picker{grid-template-columns:1fr}}
+
+.matching-wrap{margin:6px 0 14px;padding:12px;background:#0c1627;border:1px solid var(--line);border-radius:16px}
+.matching-wrap h3{margin:0;font-size:16px}
+.matching-teams{display:grid;gap:9px;margin-top:10px}
+.matching-team{
+  width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);
+  color:var(--text);padding:12px;border-radius:14px
+}
+.matching-team.selected{border-color:#60a5fa;box-shadow:0 0 0 2px rgba(96,165,250,.22)}
+.matching-title{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.workload{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}
+.workload span{font-size:11px;color:var(--muted);background:#0f1a2c;border-radius:9px;padding:7px;text-align:center}
+.workload strong{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
+.empty-match{color:var(--muted);font-size:13px;line-height:1.5;padding:8px 2px}
+@media(max-width:430px){.workload{grid-template-columns:repeat(2,1fr)}}

@@ -7,9 +7,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Trafik Takip" />
-  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="manifest" href="manifest.webmanifest?v=4" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=4" />
   <title>Trafik Takip Sistemi</title>
 </head>
 <body>
@@ -37,14 +37,22 @@
     </nav>
 
     <section id="record" class="panel active">
-      <h2>Yeni kayıt</h2>
+      <h2>Yeni İhbar</h2>
       <form id="recordForm">
         <div class="form-grid">
-          <label>Ekip
-            <select id="teamSelect" required></select>
+          <label>İlçe
+            <select id="district" required>
+              <option value="Osmangazi">Osmangazi</option>
+              <option value="Nilüfer">Nilüfer</option>
+              <option value="Yıldırım">Yıldırım</option>
+            </select>
           </label>
 
-          <label>Kayıt türü
+          <label>Mahalle
+            <select id="neighborhood" required></select>
+          </label>
+
+          <label>İhbar türü
             <select id="type" required>
               <option value="Konu">Konu</option>
               <option value="Maddi Hasarlı Kaza">Maddi Hasarlı Kaza</option>
@@ -60,26 +68,22 @@
           <label>Saat
             <input id="time" type="time" required />
           </label>
-
-          <label>İlçe
-            <select id="district">
-              <option>Osmangazi</option>
-              <option>Nilüfer</option>
-              <option>Yıldırım</option>
-              <option>Diğer</option>
-            </select>
-          </label>
-
-          <label>Mahalle
-            <select id="neighborhood"></select>
-          </label>
         </div>
 
-        <label>Açıklama
-          <textarea id="note" rows="3" placeholder="Kısa açıklama veya adres bilgisi"></textarea>
+        <div class="matching-wrap">
+          <div class="section-head">
+            <h3>Bu mahalleye bakan ekipler</h3>
+            <span id="matchingCount" class="badge">0 ekip</span>
+          </div>
+          <div id="matchingTeams" class="matching-teams"></div>
+          <input id="selectedTeamId" type="hidden" required />
+        </div>
+
+        <label>İhbar / adres açıklaması
+          <textarea id="note" rows="3" placeholder="Cadde, sokak, bina veya kısa açıklama"></textarea>
         </label>
 
-        <button class="primary" type="submit">Kaydı Ekle</button>
+        <button class="primary" type="submit">İhbarı Kaydet</button>
       </form>
     </section>
 
@@ -142,6 +146,6 @@
 
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
