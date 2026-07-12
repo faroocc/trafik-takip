@@ -7,9 +7,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Trafik Takip" />
-  <link rel="manifest" href="manifest.webmanifest?v=7" />
+  <link rel="manifest" href="manifest.webmanifest?v=8" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
   <title>Trafik Takip Sistemi</title>
 </head>
 <body>
@@ -34,11 +34,17 @@
     <section id="record" class="panel active">
       <h2>Yeni İhbar</h2>
       <form id="recordForm">
-        <div class="address-search-wrap">
-          <label>Mahalle ara
-            <input id="addressSearch" type="search" autocomplete="off" placeholder="Örn. 75. Yıl, Demirtaş, Özlüce..." />
-          </label>
-          <div id="addressSearchResults" class="address-results hidden"></div>
+        <div class="address-search-card">
+          <div class="search-title-row">
+            <strong>Hızlı Mahalle Arama</strong>
+            <span class="badge">V8</span>
+          </div>
+          <div class="address-search-wrap">
+            <label>Mahalle adı yaz
+              <input id="addressSearch" type="search" autocomplete="off" placeholder="Örn. 75. Yıl, Demirtaş, Özlüce..." />
+            </label>
+            <div id="addressSearchResults" class="address-results hidden"></div>
+          </div>
         </div>
 
         <div class="or-divider"><span>veya ilçe–mahalle seç</span></div>
@@ -197,6 +203,6 @@
 
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

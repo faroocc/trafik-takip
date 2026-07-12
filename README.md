@@ -1,7 +1,4 @@
-# Trafik Takip Sistemi V7
+# Trafik Takip Sistemi V8
 
-- İhbar ekranına hızlı mahalle araması eklendi.
-- Örnek: `75. Yıl`, `Demirtaş`, `Özlüce`.
-- Sonuca dokununca ilçe ve mahalle otomatik seçilir.
-- O mahalleye atanmış ekipler doğrudan gösterilir.
-- Eski ilçe–mahalle seçim yöntemi alternatif olarak devam eder.
+Bu sürümde hızlı mahalle arama kutusu mavi çerçeveli ve belirgin şekilde gösterilir.
+Ekranda `V8` etiketi görünmelidir. Görünmüyorsa GitHub'da eski dosyalar yayındadır.
