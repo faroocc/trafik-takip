@@ -1,10 +1,7 @@
-# Trafik Takip Sistemi V5
+# Trafik Takip Sistemi V7
 
-## Yenilikler
-- İhbar ekranı uygulamanın en üstünde
-- Son 5 ihbar aynı ekranda
-- Tam konum: ilçe / mahalle / açıklama
-- Verilen ekip bilgisi
-- Verilen ekibin o günkü toplam konusu
-- Verilen ekibin o günkü toplam kaza ve yaralamalı sayısı
-- Kaza kayıtları görsel olarak öne çıkarılır
+- İhbar ekranına hızlı mahalle araması eklendi.
+- Örnek: `75. Yıl`, `Demirtaş`, `Özlüce`.
+- Sonuca dokununca ilçe ve mahalle otomatik seçilir.
+- O mahalleye atanmış ekipler doğrudan gösterilir.
+- Eski ilçe–mahalle seçim yöntemi alternatif olarak devam eder.

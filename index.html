@@ -7,9 +7,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Trafik Takip" />
-  <link rel="manifest" href="manifest.webmanifest?v=5" />
+  <link rel="manifest" href="manifest.webmanifest?v=7" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <title>Trafik Takip Sistemi</title>
 </head>
 <body>
@@ -26,13 +26,23 @@
 
     <nav class="tabs" aria-label="Ana menü">
       <button class="tab active" data-tab="record">İhbar</button>
+      <button class="tab" data-tab="wanted">Aranan Araç</button>
+      <button class="tab" data-tab="history">Geçmiş İhbarlar</button>
       <button class="tab" data-tab="teams">Ekipler</button>
-      <button class="tab" data-tab="reports">Raporlar</button>
     </nav>
 
     <section id="record" class="panel active">
       <h2>Yeni İhbar</h2>
       <form id="recordForm">
+        <div class="address-search-wrap">
+          <label>Mahalle ara
+            <input id="addressSearch" type="search" autocomplete="off" placeholder="Örn. 75. Yıl, Demirtaş, Özlüce..." />
+          </label>
+          <div id="addressSearchResults" class="address-results hidden"></div>
+        </div>
+
+        <div class="or-divider"><span>veya ilçe–mahalle seç</span></div>
+
         <div class="form-grid">
           <label>İlçe
             <select id="district" required>
@@ -83,9 +93,9 @@
       <div class="recent-incidents">
         <div class="section-head">
           <h2>Son 5 İhbar</h2>
-          <span class="badge">En yeni</span>
+          <span class="badge">Kısa görünüm</span>
         </div>
-        <div id="recentIncidentList" class="list"></div>
+        <div id="recentIncidentList" class="compact-list"></div>
       </div>
     </section>
     <section class="stats-grid" aria-label="Bugünkü özet">
@@ -95,31 +105,64 @@
       <article class="stat"><span>Yakalamalı Araç</span><strong id="statWanted">0</strong></article>
     </section>
 
-    <section id="teams" class="panel">
+    <section id="wanted" class="panel">
+      <h2>Aranan Araç Kaydı</h2>
+      <form id="wantedForm">
+        <div class="form-grid">
+          <label>Plaka
+            <input id="wantedPlate" placeholder="Örn. 16 ABC 123" required />
+          </label>
+          <label>Görüldüğü ilçe
+            <select id="wantedDistrict" required>
+              <option value="Osmangazi">Osmangazi</option>
+              <option value="Nilüfer">Nilüfer</option>
+              <option value="Yıldırım">Yıldırım</option>
+            </select>
+          </label>
+          <label>Görüldüğü mahalle
+            <select id="wantedNeighborhood" required></select>
+          </label>
+          <label>Saat
+            <input id="wantedTime" type="time" required />
+          </label>
+        </div>
+        <label>Tam adres / açıklama
+          <textarea id="wantedAddress" rows="3" placeholder="Cadde, sokak, yön, araç rengi veya açıklama"></textarea>
+        </label>
+        <button class="primary" type="submit">Aranan Aracı Kaydet</button>
+      </form>
+      <div class="recent-incidents">
+        <div class="section-head">
+          <h2>Son Aranan Araç Kayıtları</h2>
+          <span class="badge">Son 5</span>
+        </div>
+        <div id="wantedList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="history" class="panel">
+      <div class="section-head">
+        <h2>Geçmiş İhbarlar</h2>
+        <button id="exportBtnHistory" class="ghost small">CSV İndir</button>
+      </div>
+      <div class="filters">
+        <label>Tarih
+          <input id="historyDate" type="date" />
+        </label>
+        <label>Ekip
+          <select id="historyTeam"></select>
+        </label>
+      </div>
+      <div id="historySummary" class="report-summary"></div>
+      <div id="historyList" class="list"></div>
+    </section>
+
+<section id="teams" class="panel">
       <div class="section-head">
         <h2>Ekipler</h2>
         <button id="addTeamBtn" class="primary small">Ekip Ekle</button>
       </div>
       <div id="teamList" class="list"></div>
-    </section>
-
-    <section id="reports" class="panel">
-      <div class="section-head">
-        <h2>Raporlar</h2>
-        <button id="exportBtn" class="ghost small">CSV İndir</button>
-      </div>
-
-      <div class="filters">
-        <label>Tarih
-          <input id="filterDate" type="date" />
-        </label>
-        <label>Ekip
-          <select id="filterTeam"></select>
-        </label>
-      </div>
-
-      <div id="reportSummary" class="report-summary"></div>
-      <div id="recordList" class="list"></div>
     </section>
   </main>
 
@@ -154,6 +197,6 @@
 
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
