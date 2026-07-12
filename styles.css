@@ -36,3 +36,21 @@ dialog::backdrop{background:rgba(0,0,0,.65)}.dialog-actions{display:grid;grid-te
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .hidden{display:none}
 @media(max-width:560px){.form-grid,.filters{grid-template-columns:1fr}.topbar .ghost{display:none}.report-summary{grid-template-columns:repeat(2,1fr)}}
+
+.neighborhood-picker{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
+  max-height:260px;overflow:auto;padding:9px;background:var(--card2);
+  border:1px solid var(--line);border-radius:13px;margin-top:6px
+}
+.neighborhood-option{
+  display:flex;align-items:center;gap:8px;margin:0;padding:9px;
+  background:#0f1a2c;border:1px solid var(--line);border-radius:10px;
+  color:var(--text);font-size:13px
+}
+.neighborhood-option input{width:auto;margin:0;accent-color:var(--accent)}
+.picker-tools{display:flex;gap:8px;margin:2px 0 8px}
+.picker-count{font-size:12px;margin:7px 0 12px}
+.team-neighborhoods{margin-top:8px;display:flex;gap:5px;flex-wrap:wrap}
+.mini-chip{font-size:11px;background:#20334f;color:#dbeafe;padding:4px 7px;border-radius:999px}
+.more-chip{background:#334155}
+@media(max-width:430px){.neighborhood-picker{grid-template-columns:1fr}}

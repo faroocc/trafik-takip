@@ -71,7 +71,7 @@
           </label>
 
           <label>Mahalle
-            <input id="neighborhood" placeholder="Örn. Hüdavendigar" />
+            <select id="neighborhood"></select>
           </label>
         </div>
 
@@ -117,9 +117,22 @@
       <label>Ekip kodu
         <input id="teamCode" placeholder="Örn. 5442" required />
       </label>
-      <label>Görev bölgesi
-        <input id="teamArea" placeholder="Örn. Nilüfer Merkez" />
+      <label>İlçe
+        <select id="teamDistrict" required>
+          <option value="Osmangazi">Osmangazi</option>
+          <option value="Nilüfer">Nilüfer</option>
+          <option value="Yıldırım">Yıldırım</option>
+        </select>
       </label>
+      <label>Görev mahalleleri
+        <input id="teamNeighborhoodSearch" type="search" placeholder="Mahalle ara..." />
+      </label>
+      <div class="picker-tools">
+        <button type="button" class="ghost small" id="selectAllNeighborhoods">Tümünü Seç</button>
+        <button type="button" class="ghost small" id="clearNeighborhoods">Temizle</button>
+      </div>
+      <div id="teamNeighborhoodPicker" class="neighborhood-picker"></div>
+      <p id="selectedNeighborhoodCount" class="muted picker-count">0 mahalle seçildi</p>
       <div class="dialog-actions">
         <button value="cancel" class="ghost">Vazgeç</button>
         <button value="default" class="primary" id="saveTeamBtn">Kaydet</button>
